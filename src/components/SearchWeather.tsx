@@ -44,8 +44,7 @@ function SearchWeather() {
                     const weatherTableObject: IWeatherObject = {
                         time: formattedTime, 
                         icon: icon as '*png', 
-                        temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C", 
-                        size: 9,
+                        temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C"
                     }
                     return weatherTableObject
                 })
@@ -69,8 +68,7 @@ function SearchWeather() {
                         const weatherDaysObject: IWeatherObject = {
                             time: dayName, 
                             icon: icon as '*png', 
-                            temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C",
-                            size: 9
+                            temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C"
                         }
                         weatherDays.push(weatherDaysObject)
                     }
@@ -79,7 +77,7 @@ function SearchWeather() {
             }))
             context?.setLoading(false)
             context?.setError(null)
-        }, 2000)
+        }, 1000)
     }, [])
 
     return (

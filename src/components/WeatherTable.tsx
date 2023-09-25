@@ -10,14 +10,13 @@ function WeatherTable() {
         {context?.weatherTable && !context?.error && !context.isLoading &&
             <div className="bg-white rounded-lg shadow-lg p-4">
             <h1 className=" ont-semibold mb-4">Tooday`s Forecast</h1>
-            <div className="bg-gray-100 rounded-lg p-4 text-center">
+            <div className="bg-gray-100 rounded-lg p-3 text-center">
             {context?.weatherTable?.map((weatherInfo: IWeatherObject, index: number) => 
                 <WeatherTableObject 
                     key={index}
                     time={weatherInfo.time} 
                     icon={weatherInfo.icon} 
                     temp={weatherInfo.temp}
-                    size={9}
                 />
             )}
             </div>

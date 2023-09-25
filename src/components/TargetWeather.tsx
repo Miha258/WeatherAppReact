@@ -13,9 +13,9 @@ function TargetWeather() {
             <div className="relative p-4">
                 <h2 className="text-2xl font-semibold mb-2">{context?.city.toUpperCase()}</h2>
                 <p className="text-gray-600 mb-4">{context?.weatherDetails?.weather[0].main}</p>
-                <div className="absolute inset-y-0 right-0 w-16 text-center">
-                    <p className="text-3xl">{(context?.weatherDetails?.main.temp! - 273.15).toFixed().toString()}°C</p>
-                    <WeatherIcon icon={context?.weatherDetails?.weather[0].icon} size={2}/>
+                <div className="absolute inset-y-0 right-0 w-16 text-center text-3xl">
+                    <p>{(context?.weatherDetails?.main.temp! - 273.15).toFixed().toString()}°C</p>
+                    <WeatherIcon icon={context?.weatherDetails?.weather[0].icon}/>
                 </div>
             </div>
             }

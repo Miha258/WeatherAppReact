@@ -8,10 +8,9 @@ import { useCallback, useState } from 'react';
 
 type WeatherIconProps = {
   icon: string;
-  size: number
 };
 
-function WeatherIcon({ icon, size }: WeatherIconProps) {
+function WeatherIcon({ icon }: WeatherIconProps) {
     const [newIcon, setIcon] = useState<string>(icon);
     const getImage = useCallback(() => {
         switch (icon) {
@@ -50,9 +49,7 @@ function WeatherIcon({ icon, size }: WeatherIconProps) {
             return sunny
         }
     }, [])
-    
-    const style = `p-${size}`
-    return <img src={getImage()} alt="Weather Icon" className={style}/>;
+    return <img className='p-2' src={getImage()} alt="Weather Icon"/>;
 }
 
 export default WeatherIcon

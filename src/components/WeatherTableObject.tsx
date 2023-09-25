@@ -7,7 +7,7 @@ function WeatherTableObject(props: IWeatherObject) {
             className="inline-block w-32 h-32 border-x-2 border-gray-300p-2 mr-4 mb-4 text-center"
             >
             <div className="text-gray-700">{props.time}</div>
-                <WeatherIcon icon={props.icon} size={props.size}/>
+                <WeatherIcon icon={props.icon}/>
                 {props.temp}
         </div>
     )

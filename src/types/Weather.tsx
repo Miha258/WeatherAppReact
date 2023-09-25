@@ -59,7 +59,6 @@ export type IWeatherObject = {
     time: string 
     icon: '*png'
     temp: string
-    size: number
 }
 
 export type ITargetWeather = {
