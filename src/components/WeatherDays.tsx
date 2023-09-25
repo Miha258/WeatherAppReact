@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react"
+import { useContext } from "react"
 import { WeatherContext } from "../WeatherContext"
 import { IWeatherObject } from "../types/Weather"
 import WeatherDayObject from "./WeatherTableObject"

@@ -44,7 +44,7 @@ function SearchWeather() {
                     const weatherTableObject: IWeatherObject = {
                         time: formattedTime, 
                         icon: icon as '*png', 
-                        temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C"
+                        temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C", 
                     }
                     return weatherTableObject
                 })
