@@ -4,11 +4,16 @@ import WeatherIcon from "./WeatherIcon"
 function WeatherTableObject(props: IWeatherObject) {
     return (
         <div
-            className="inline-block w-32 h-32 border-x-2 border-gray-300p-2 mr-4 mb-4 text-center"
+            className="inline-block mb-4"
             >
-            <div className="text-gray-700">{props.time}</div>
+            <div className="object-center">
+                <span className="text-gray-500">{props.time}</span>
+                <br/>
+                <br/>
                 <WeatherIcon icon={props.icon}/>
+                <br/>
                 {props.temp}
+            </div>
         </div>
     )
 }

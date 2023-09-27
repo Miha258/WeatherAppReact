@@ -1,16 +1,16 @@
 import { useContext } from "react"
 import { WeatherContext } from "../WeatherContext"
 import { IWeatherObject } from "../types/Weather"
-import WeatherDayObject from "./WeatherTableObject"
+import WeatherDayObject from "./WeatherDayObject"
 
 function WeatherDays() {
     const context = useContext(WeatherContext)
     return (
-        <div className="absolute inset-x-20 bottom-[-150px]">
+        <div className="ml-auto mr-20 mt-20">
         {context?.weatherTable && !context?.error && !context.isLoading &&
-            <div className="bg-white rounded-lg shadow-lg p-4">
-            <h1 className=" ont-semibold mb-4">Few Days Forecast</h1>
-            <div className="bg-gray-100 rounded-lg p-5 text-center">
+            <div className="bg-slate-700 rounded-2xl shadow-lg p-4">
+            <h1 className="text-gray-500 font-semibold mb-4">Few Days Forecast</h1>
+            <div className="grid grid-rows-5 gap-4 rounded-2xl divide-gray-600 divide-y">
             {context?.weatherDays?.map((weatherInfo: IWeatherObject, index: number) => 
                 <WeatherDayObject 
                     key={index}

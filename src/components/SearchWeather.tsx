@@ -1,4 +1,4 @@
-import { useContext, useCallback, useRef, useEffect } from 'react'
+import { useContext, useCallback, useRef } from 'react'
 import { WeatherContext } from "../WeatherContext"
 import { IWeatherItem,  IWeatherTable, IWeatherObject } from "../types/Weather"
 
@@ -40,7 +40,7 @@ function SearchWeather() {
 
                     const formattedTime = `${formattedHours}:${formattedMinutes}`
                     let icon = w.weather[0].icon
-                    
+                
                     const weatherTableObject: IWeatherObject = {
                         time: formattedTime, 
                         icon: icon as '*png', 
@@ -57,18 +57,27 @@ function SearchWeather() {
                 }
 
                 let weatherDays: IWeatherObject[] = []
-
                 data.list.forEach(w => {
                     const unixTimestamp = w.dt * 1000
                     const date = new Date(unixTimestamp)
                     const dayName = date.toLocaleDateString('en-US', { weekday: 'long' }); 
                     
-                    if (!weatherDays.find(v => v.time == dayName)) {
-                        let icon = w.weather[0].icon
+
+                    const temps: number[] = []
+                    data.list.forEach(_w => {
+                        if (w.dt_txt == _w.dt_txt){
+                            temps.push((_w.main.temp - 273.15))
+                        }
+                    
+                    })
+                    const avrgTemp = temps.reduce((acc, current) => acc + current, 0) / temps.length
+                    const icon = w.weather[0].icon
+                    if (!weatherDays.find(v => (v.time == dayName)) && !icon.includes('n')) {
+                        
                         const weatherDaysObject: IWeatherObject = {
                             time: dayName, 
                             icon: icon as '*png', 
-                            temp: (w.main.temp - 273.15).toFixed(0).toString() + "°C"
+                            temp: avrgTemp.toFixed(0).toString() + "°C"
                         }
                         weatherDays.push(weatherDaysObject)
                     }
@@ -81,12 +90,12 @@ function SearchWeather() {
     }, [])
 
     return (
-        <div className="absolute inset-x-20 top-1">
+        <div>
             <div>
-                <input ref={inputRef} type="text" id="first_name" className="bg-gray-100 rounded-lg border-gray-300 p-2 focus:outline-none w-full" placeholder='Enter city'/>
+                <input ref={inputRef} type="text" id="first_name" className="bg-slate-700 rounded-2xl border-gray-300 p-2 focus:outline-none w-full" placeholder='Enter city'/>
                 <button
                     onClick={updateWether}
-                    className="mt-2 bg-gray-200 hover:bg-gray-300 text-white rounded-lg py-2 px-4"
+                    className="mt-2 bg-slate-700 hover:bg-gray-900 text-white rounded-2xl py-2 px-4"
                 >
                     Search
                 </button>

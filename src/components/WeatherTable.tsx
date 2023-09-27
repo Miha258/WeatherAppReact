@@ -6,11 +6,11 @@ import WeatherTableObject from "./WeatherTableObject"
 function WeatherTable() {
     const context = useContext(WeatherContext)
     return (
-        <div className="absolute inset-x-20 top-48">
+        <div>
         {context?.weatherTable && !context?.error && !context.isLoading &&
-            <div className="bg-white rounded-lg shadow-lg p-4">
-            <h1 className=" ont-semibold mb-4">Tooday`s Forecast</h1>
-            <div className="bg-gray-100 rounded-lg p-3 text-center">
+            <div className="bg-slate-700 rounded-2xl shadow-lg p-4">
+            <h1 className="mb-4 text-gray-500">Tooday`s Forecast</h1>
+            <div className="grid grid-cols-7 text-center rounded-2xl divide-gray-600 divide-x">
             {context?.weatherTable?.map((weatherInfo: IWeatherObject, index: number) => 
                 <WeatherTableObject 
                     key={index}

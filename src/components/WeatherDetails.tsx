@@ -4,10 +4,10 @@ import { WeatherContext } from "../WeatherContext"
 function WeatherDetails() {
     const context = useContext(WeatherContext)
     return (
-        <div className="absolute inset-x-20 bottom-32">
+        <div>
             {context?.weatherDetails && !context.error && !context.isLoading &&
-            <div className="bg-white rounded-lg shadow-lg p-4">
-                <h1 className=" ont-semibold mb-4">Air conditions</h1>
+            <div className="rounded-2xl p-4">
+                <h1 className="font-semibold mb-4">Air conditions</h1>
                 <div className="grid grid-cols-2 gap-2">
                     <div>
                         <h3 className='text-sm'>Real Feel</h3>

@@ -1,12 +1,12 @@
-import weather_m from '../icons/weather_m.png'
+import wind_m from '../icons/wind_m.png'
 
 function MenuBar() {
     return (
-        <div className="absolute inset-y-0 left-2 w-16 rounded">
-            <div className="bg-gray-100 rounded-lg p-2 h-full">
+        <div className="basis-20 p-2">
+            <div className="bg-slate-700 rounded-2xl p-2 h-full">
             <ul className='mt-4'>   
-                <li>
-                    <img src={weather_m}/>
+                <li className='bg-slate-600 p-0.5 rounded-2xl'>
+                    <img src={wind_m}/>
                 </li>
             </ul>
             </div>

@@ -9,14 +9,20 @@ import WeatherDays from "./components/WeatherDays";
 
 function App() {
   return (
-    <div className="flex">
+    <div>
         <WeatherContextProvider>
-            <MenuBar/>
-            <SearchWeather/>
-            <WeatherDays/>
-            <TargetWeather/>
-            <WeatherTable/>
-            <WeatherDetails/>
+            <div className="flex">
+              <MenuBar/>
+              <div className="flex-grow p-4">
+                  <SearchWeather />
+                  <TargetWeather />
+                  <WeatherTable/>
+                  <WeatherDetails/>
+              </div>
+              <div className="flex-none w-96">
+                <WeatherDays/>
+              </div>
+            </div>
         </WeatherContextProvider> 
     </div>
   );
