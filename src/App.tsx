@@ -9,7 +9,7 @@ import WeatherDays from "./components/WeatherDays";
 
 function App() {
   return (
-    <div>
+    <div className="bg-slate-950 text-zinc-50 h-screen">
         <WeatherContextProvider>
             <div className="flex">
               <MenuBar/>
